@@ -1,0 +1,39 @@
+{
+  "fill-specializations" : [
+    {
+      "value" : {
+        "linear-gradient" : [
+          "srgb:1.00000,1.00000,1.00000,1.00000",
+          "srgb:0.90980,0.90980,0.97255,1.00000"
+        ]
+      }
+    },
+    {
+      "appearance" : "dark",
+      "value" : {
+        "linear-gradient" : [
+          "srgb:0.17000,0.16000,0.27000,1.00000",
+          "srgb:0.06000,0.06000,0.11000,1.00000"
+        ]
+      }
+    }
+  ],
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "name" : "moon",
+          "image-name-specializations" : [
+            { "value" : "moon-light.png" },
+            { "appearance" : "dark", "value" : "moon-dark.png" }
+          ]
+        }
+      ],
+      "shadow" : { "kind" : "neutral", "opacity" : 0.4 },
+      "translucency" : { "enabled" : false, "value" : 0.5 }
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : [ "macOS" ]
+  }
+}
