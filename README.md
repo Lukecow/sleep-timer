@@ -4,11 +4,10 @@ A tiny, free menu bar app for falling asleep to videos.
 Pick a time; when it's up, Sleep Timer gently fades the volume, pauses what's
 playing, and puts your Mac to sleep.
 
-<p>
-  <img src="docs/1-picker-dark.png" width="260" alt="Choosing a time with the scroll wheels">
-  <img src="docs/2-running-light.png" width="260" alt="Countdown ring while the timer runs">
-  <img src="docs/3-settings-dark.png" width="260" alt="Settings">
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots-dark.png">
+  <img src="docs/screenshots-light.png" alt="Sleep Timer: choosing a time with the scroll wheels, the countdown ring, and settings">
+</picture>
 
 ## Features
 
@@ -67,6 +66,8 @@ defaults delete com.luke.sleeptimer dryRun             # back to normal
 ```
 
 In test mode, actions are logged to `~/Library/Logs/SleepTimer.log`.
+
+The screenshots are made by `tools/screenshots.swift` (instructions at the top of that file).
 
 The app icon is `Icon/AppIcon.icon` (Icon Composer format, light and dark). Its moon images come from
 `Icon/make_glyph.swift`; `Icon/make_icon.swift` draws the fallback icon.

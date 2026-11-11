@@ -25,7 +25,7 @@ final class TimerModel: ObservableObject {
         didSet { defaults.set(pickedMinutes, forKey: "pickedMinutes") }
     }
     /// Full length of the current timer (for the progress ring).
-    @Published private(set) var totalDuration: TimeInterval = 1
+    @Published var totalDuration: TimeInterval = 1   // settable so screenshots can show a part-used ring
     /// Whether the settings page is showing in the menu.
     @Published var showSettings = false
     @Published var endAction: EndAction {

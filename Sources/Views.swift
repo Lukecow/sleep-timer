@@ -203,9 +203,7 @@ struct SettingsPage: View {
             Text(title).font(.system(size: 13))
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .toggleStyle(.switch)
-        .controlSize(.small)
-        .tint(accent)
+        .toggleStyle(PurpleSwitchStyle())
         .padding(.horizontal, 12)
         .padding(.vertical, 9)
     }
@@ -241,6 +239,32 @@ struct CircleButtonStyle: ButtonStyle {
             .background(Circle().fill(fill))
             .opacity(configuration.isPressed ? 0.7 : 1)
             .contentShape(Circle())
+    }
+}
+
+/// A small on/off switch in the app's purple.
+struct PurpleSwitchStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+            Capsule()
+                .fill(configuration.isOn ? accent : Color.primary.opacity(0.18))
+                .frame(width: 34, height: 20)
+                .overlay(
+                    Circle()
+                        .fill(.white)
+                        .shadow(color: .black.opacity(0.25), radius: 1, y: 0.5)
+                        .padding(2)
+                        .offset(x: configuration.isOn ? 7 : -7)
+                )
+                .animation(.snappy(duration: 0.2), value: configuration.isOn)
+        }
+        .contentShape(Rectangle())
+        .onTapGesture { configuration.isOn.toggle() }   // click anywhere on the row
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isButton)
+        .accessibilityValue(configuration.isOn ? "On" : "Off")
+        .accessibilityAction { configuration.isOn.toggle() }
     }
 }
 
